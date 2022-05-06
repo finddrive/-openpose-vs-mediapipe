@@ -1,0 +1,59 @@
+<!--index.wxml-->
+<view class="acontainer">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+
+  <view class='list-msg'>
+    <!--下拉框  -->
+    <view class='list-msg2' bindtap='bindShowMsg'>
+      <text style="color:#808080">{{tihouWay}}</text>
+      <image style='height:38rpx;width:38rpx;' src='/static/down.png'></image>
+    </view>
+    <!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+      <view class="select_one" bindtap="mySelect" data-name="跳绳">跳绳</view>
+      <view class="select_one" bindtap="mySelect" data-name="俯卧撑">俯卧撑</view>
+      <view class="select_one" bindtap="mySelect" data-name="引体向上">引体向上</view>
+      <view class="select_one" bindtap="mySelect" data-name="深蹲">深蹲</view>
+      <view class="select_one" bindtap="mySelect" data-name="卷腹">卷腹</view>
+    </view>
+  </view>
+
+  <!--upload video-->
+  <view class='imageadd'>
+    <view class='imageborder' bindtap="uploadvideo">
+      <image src="{{addimage}}"></image>
+    </view>
+  </view>
+</view>
+
+<button class='but' bindtap='counting'>开始计数</button>
+
+<view class='result'>
+  <text style="color:#808080">结果\n</text>
+  <text>个数：{{countresult['count']}}\n</text>
+  <text>类型：{{countresult['type']}}\n</text>
+  <text>日期：{{countresult['date']}}</text>
+</view>
+
+
+<!--
+<view bindtap="clickMe" data-nid="123">点我跳转</view>
+<navigator url="/pages/redirect/redirect?id=666">跳转到新页面</navigator>
+-->

@@ -1,0 +1,64 @@
+/* pages/home/home.wxss */
+
+.operation{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-top: 10rpx;
+  border: 1px solid #808080;
+  padding: 0 10rpx;
+}
+.operation .choose{
+    display: flex;
+    flex-direction: row;
+}
+.operation .img{
+    height:38rpx;
+    width:38rpx;
+    padding-top: 10rpx;
+}
+
+.select_type_box {
+    background-color: #eee;
+    margin-top: 46rpx;
+    padding:0 15rpx;
+    width: 18%;
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+    animation: myfirst 0.2s;
+}
+
+@keyframes myfirst {
+  from {
+   height: 0rpx;
+  }
+   
+  to {
+   height: 210rpx;
+  }
+ }
+   
+.select_one {
+  height: 55rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+ }
+
+.menu{
+  /*各记录 竖直排列*/
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;   /*元素在主轴方向如何展示:flex-start/cneter/space-around/space-between*/
+  margin-top: 25rpx;
+}
+image{
+  width: 150rpx;
+  height: 150rpx;
+  padding: 5rpx;
+}
+
+.menu .detail{
+  line-height:53rpx;
+}
+

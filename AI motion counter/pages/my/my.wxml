@@ -1,0 +1,93 @@
+<!--pages/home/home.wxml-->
+<text>
+历史记录</text>
+
+<view class="operation">
+    <view>筛选</view>
+    <view class ="choose">
+        <text style="color:#808080" bindtap='bindShowType'>{{shift['type']}}</text>
+        <image class='img' src='/static/down.png' bindtap='bindShowType'></image>
+        <!-- 下拉需要显示的列表 -->
+        <view class="select_type_box" wx:if="{{select['type']}}">
+            <view class="select_one" bindtap="typeSelect" data-name=" "></view>
+            <view class="select_one" bindtap="typeSelect" data-name="跳绳">跳绳  </view>
+            <view class="select_one" bindtap="typeSelect" data-name="俯卧撑">俯卧撑 </view>
+            <view class="select_one" bindtap="typeSelect" data-name="引体向上">引体向上</view>
+            <view class="select_one" bindtap="typeSelect" data-name="深蹲">深蹲  </view>
+            <view class="select_one" bindtap="typeSelect" data-name="卷腹">卷腹</view>
+        </view>
+    </view>
+    <view  class ="choose">
+        <!--  选择时间  -->
+        <picker mode="date"  value="{{shift['date']}}" start= "2022-03-01" bindchange="bindDateChange">
+            <view class="picker" style="color:#808080">{{shift['date']}}</view>
+        </picker>
+        <image class='img' src='/static/down.png' bindtap='bindShowDate'></image>
+        <view class="select_type_box" wx:if="{{select['date']}}">
+            <view class="select_one" bindtap="dateSelect" >重置</view>
+        </view>
+    </view>
+    
+</view>
+
+<!-- 引入wxs -->
+<!-- str: 字符串   "ABCD" -->
+<!-- str_: 要对比的字符串  "B" -->
+<wxs module="indexofStr">
+	module.exports.includes = function (str, str_) {
+		return str.indexOf(str_);
+	}
+</wxs>
+
+<!--  没有条件  -->
+<view wx:if="{{shift['type']== '运动类型' && shift['date']=='日期'}}">
+    <view class="menu" wx:for="{{recordList}}" wx:key='date'> 
+        <image src="{{item['image']}}"></image>
+        <view class="detail">
+            <text>个数：{{item['count']}}\n</text>
+            <text>类型：{{item['type']}}\n</text>
+            <text>日期：{{item['date']}}</text>
+        </view>
+    </view>
+</view>
+<!--  日期有条件  -->
+<view wx:elif="{{shift['type']== '运动类型'}}">
+    <view wx:for="{{recordList}}" wx:key='date'> 
+        <view class="menu" wx:if="{{indexofStr.includes(item['date'],shift['date'])>-1}}">
+            <image src="{{item['image']}}"></image>
+            <view class="detail">
+                <text>个数：{{item['count']}}\n</text>
+                <text>类型：{{item['type']}}\n</text>
+                <text>日期：{{item['date']}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!--  类型有条件  -->
+<view wx:elif="{{shift['date']=='日期'}}">
+    <view wx:for="{{recordList}}" wx:key='date'> 
+        <view class="menu" wx:if="{{item['type'] == shift['type']}}">
+            <image src="{{item['image']}}"></image>
+            <view class="detail">
+                <text>个数：{{item['count']}}\n</text>
+                <text>类型：{{item['type']}}\n</text>
+                <text>日期：{{item['date']}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<!--  都有条件  -->
+<view wx:else>
+    <view wx:for="{{recordList}}" wx:key='date'> 
+        <view class="menu" wx:if="{{item['type'] == shift['type'] && indexofStr.includes(item['date'],shift['date'])>-1}}">
+            <image src="{{item['image']}}"></image>
+            <view class="detail">
+                <text>个数：{{item['count']}}\n</text>
+                <text>类型：{{item['type']}}\n</text>
+                <text>日期：{{item['date']}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+  
+

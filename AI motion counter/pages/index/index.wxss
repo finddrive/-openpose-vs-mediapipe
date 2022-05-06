@@ -1,0 +1,104 @@
+/**index.wxss**/
+.acontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.acontainer .userinfo.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.acontainer .userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.acontainer .list-msg {
+  padding: 20rpx 20rpx;
+  background-color: #fff;
+  position: relative;
+ }
+
+ .acontainer .list-msg .list-msg2 {
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #808080;
+  padding: 0 10rpx;
+}
+
+.acontainer .list-msg .select_box {
+  background-color: #eee;
+  padding: 0 20rpx;
+  width: 92%;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+  animation: myfirst 0.2s;
+ }
+   
+ @keyframes myfirst {
+  from {
+   height: 0rpx;
+  }
+   
+  to {
+   height: 210rpx;
+  }
+ }
+   
+.acontainer .select_one {
+  height: 60rpx;
+  line-height: 60rpx;
+  border-bottom: 1px solid #ccc;
+ }
+
+ .acontainer .imageadd{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40rpx 150rpx;
+}
+
+.acontainer .imageadd .imageborder{
+  width: 425rpx;
+  height: 350rpx;
+  border: 5rpx solid #808080;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.acontainer .imageadd .imageborder image{
+  width: 400rpx;
+  height: 325rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.acontainer .imageadd .imageborder .show{
+  color: #808080;
+}
+
+.but{
+  margin-top: 25rpx;
+  background-color: #44BB00;  
+}
+
+.result{
+  width: 670rpx;
+  height: 200rpx;
+  margin-top: 80rpx;
+  margin-left: 15rpx;
+  padding: 5rpx 20rpx;
+  border: 4rpx solid #808080;
+}
