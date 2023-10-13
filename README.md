@@ -21,7 +21,7 @@ This section compares MediaPipe with Farneback and OpenPose to select the optima
 - On the "My" page, users can view/filter saved detection records based on "Exercise Type" and "Date" using wx:for and wx:if-wx:elif for conditional rendering.
 app file: the back end built in Flask
 
-  <img hight="100" width="171" alt="Home" src="https://github.com/yahan-ds/mediapipe-AI-counter/assets/93264144/a0830648-1775-4534-ac52-92ddc4330977">
+  <img hight="100" width="171" alt="Home" src="https://github.com/yahan-ds/mediapipe-AI-counter/assets/93264144/7dc37616-5c13-4b1a-9a31-3d791e4a005c">
   <img hight="100" width="173" alt="My" src="https://github.com/yahan-ds/mediapipe-AI-counter/assets/93264144/abf50936-7eb2-4080-a360-aab9efea114f">
   <img hight="150" width="250" alt="Filter" src="https://github.com/yahan-ds/mediapipe-AI-counter/assets/93264144/01f89d0b-eb45-4d0d-bc91-e526563ffa2f">
 
